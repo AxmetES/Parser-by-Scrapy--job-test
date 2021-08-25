@@ -2,3 +2,4 @@
 .idea
 /kolesa/kolesa/__pycache__
 /kolesa/kolesa/spiders/__pycache__
+/kolesa/data.json
