@@ -25,7 +25,7 @@ class KolesaSpiderSpider(scrapy.Spider):
             title = car_div.css('a.ddl_product_link::text').get()
             price = car_div.css('span.price::text').get()
             link = urljoin(self.main_url, car_div.css('a.ddl_product_link').attrib['href'])
-            # (price.replace(u'\xa0', u' ')).strip('\n').strip()
+
             yield {'title': title,
                    'price': self.clean_price(price),
                    'link': link,
