@@ -1,28 +1,25 @@
 Скачиваем приложение:
 
 ```bash
-git clone 
+git clone https://github.com/AxmetES/Parser-by-Scrapy--job-test.git
 ```
 
-Создаем виртуальное окружение:
+Билдим image докера:
 
 ```bash
-python3 -m venv venv
+docker build -t scrapy .
 ```
 
-Устанавливаем все зависмости:
+Запускаем контейнер:
 
 ```bash
-pip install -r requirements.txt
+docker run --rm -v {your home dir}:/scrapy -it scrapy crawl kolesa_spider -O data.json
 ```
 
-(Переменная установлена по умолчанию, для тестирования устанавливать нет необходимости.)
-Создаем ```.env``` файл и записываем в перменную ```SITE_URL``` адрес сайта с результатами пойска машины.
-
-Из каталога ```/kolesa``` апускаем программу:
+For example:
 
 ```bash
- scrapy crawl kolesa_spider -O data.json
+docker run --rm -v /home/pydev/Desktop/job_tests/Parser-by-Scrapy--job-test:/scrapy -it scrapy crawl kolesa_spider -O data.json
 ```
 
 Результаты парсинга будут в файле data.json в корне проекта.
